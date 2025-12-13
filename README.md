@@ -40,13 +40,13 @@ This project demonstrates proficiency in:
 - Protected routes and API endpoints
 
 ### 🍬 Sweet Management
-- **Create**: Add new sweets with details (name, category, price, quantity)
-- **Read**: View all available sweets with search and filtering
-- **Update**: Modify sweet details and inventory
+- **Create**: Add new sweets with details (Admin only)
+- **Read**: View all available sweets with search and filtering (All authenticated users)
+- **Update**: Modify sweet details (Admin only)
 - **Delete**: Remove sweets (Admin only)
 
 ### 📦 Inventory Management
-- **Purchase System**: Buy sweets with quantity validation
+- **Purchase System**: Buy sweets with quantity validation (All authenticated users)
 - **Restock System**: Replenish inventory (Admin only)
 - **Real-time Updates**: Live inventory tracking
 - **Stock Validation**: Prevent overselling
@@ -68,16 +68,16 @@ This project demonstrates proficiency in:
 ### Sweet Management Endpoints (Protected)
 | Method | Endpoint | Description | Access |
 |--------|----------|-------------|---------|
-| `POST` | `/api/sweets` | Add a new sweet | Authenticated |
-| `GET` | `/api/sweets` | Get all sweets | Authenticated |
-| `GET` | `/api/sweets/search` | Search sweets by name, category, price | Authenticated |
-| `PUT` | `/api/sweets/:id` | Update sweet details | Authenticated |
+| `POST` | `/api/sweets` | Add a new sweet | Admin Only |
+| `GET` | `/api/sweets` | Get all sweets | All Authenticated Users |
+| `GET` | `/api/sweets/search` | Search sweets by name, category, price | All Authenticated Users |
+| `PUT` | `/api/sweets/:id` | Update sweet details | Admin Only |
 | `DELETE` | `/api/sweets/:id` | Delete sweet | Admin Only |
 
 ### Inventory Management Endpoints (Protected)
 | Method | Endpoint | Description | Access |
 |--------|----------|-------------|---------|
-| `POST` | `/api/sweets/:id/purchase` | Purchase sweet (decreases quantity) | Authenticated |
+| `POST` | `/api/sweets/:id/purchase` | Purchase sweet (decreases quantity) | All Authenticated Users |
 | `POST` | `/api/sweets/:id/restock` | Restock sweet (increases quantity) | Admin Only |
 
 ## 🚀 Setup Instructions

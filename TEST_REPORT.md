@@ -2,7 +2,7 @@
 
 ## Test Summary
 - **Total Test Suites**: 2 passed, 2 total
-- **Total Tests**: 28 passed, 28 total
+- **Total Tests**: 30 passed, 30 total
 - **Test Coverage**: 64% overall coverage
 - **Test Duration**: 18.098 seconds
 
@@ -31,10 +31,11 @@
 - ✅ should not login with invalid password
 - ✅ should not login with missing fields
 
-### Sweet Management Tests (20 tests)
+### Sweet Management Tests (22 tests)
 ✅ **POST /api/sweets**
 - ✅ should create a new sweet with valid data
 - ✅ should not create sweet without authentication
+- ✅ should not create sweet as regular user
 - ✅ should not create sweet with invalid data
 
 ✅ **GET /api/sweets**
@@ -49,6 +50,7 @@
 ✅ **PUT /api/sweets/:id**
 - ✅ should update sweet with valid data
 - ✅ should not update sweet without authentication
+- ✅ should not update sweet as regular user
 - ✅ should not update non-existent sweet
 
 ✅ **DELETE /api/sweets/:id**

@@ -72,7 +72,7 @@ describe('Sweet Routes', () => {
 
       const response = await request(app)
         .post('/api/sweets')
-        .set('Authorization', `Bearer ${userToken}`)
+        .set('Authorization', `Bearer ${adminToken}`)
         .send(sweetData)
         .expect(201);
 
@@ -100,6 +100,24 @@ describe('Sweet Routes', () => {
       expect(response.body.message).toContain('token');
     });
 
+    it('should not create sweet as regular user', async () => {
+      const sweetData = {
+        name: 'Gummy Bears',
+        category: 'Gummy',
+        price: 1.99,
+        quantity: 50
+      };
+
+      const response = await request(app)
+        .post('/api/sweets')
+        .set('Authorization', `Bearer ${userToken}`)
+        .send(sweetData)
+        .expect(403);
+
+      expect(response.body.success).toBe(false);
+      expect(response.body.message).toContain('Admin');
+    });
+
     it('should not create sweet with invalid data', async () => {
       const sweetData = {
         name: 'A', // Too short
@@ -110,7 +128,7 @@ describe('Sweet Routes', () => {
 
       const response = await request(app)
         .post('/api/sweets')
-        .set('Authorization', `Bearer ${userToken}`)
+        .set('Authorization', `Bearer ${adminToken}`)
         .send(sweetData)
         .expect(400);
 
@@ -180,13 +198,26 @@ describe('Sweet Routes', () => {
 
       const response = await request(app)
         .put(`/api/sweets/${testSweet._id}`)
-        .set('Authorization', `Bearer ${userToken}`)
+        .set('Authorization', `Bearer ${adminToken}`)
         .send(updateData)
         .expect(200);
 
       expect(response.body.success).toBe(true);
       expect(response.body.data.name).toBe(updateData.name);
       expect(response.body.data.price).toBe(updateData.price);
+    });
+
+    it('should not update sweet as regular user', async () => {
+      const updateData = { name: 'Updated Name' };
+
+      const response = await request(app)
+        .put(`/api/sweets/${testSweet._id}`)
+        .set('Authorization', `Bearer ${userToken}`)
+        .send(updateData)
+        .expect(403);
+
+      expect(response.body.success).toBe(false);
+      expect(response.body.message).toContain('Admin');
     });
 
     it('should not update sweet without authentication', async () => {
@@ -206,7 +237,7 @@ describe('Sweet Routes', () => {
 
       const response = await request(app)
         .put(`/api/sweets/${fakeId}`)
-        .set('Authorization', `Bearer ${userToken}`)
+        .set('Authorization', `Bearer ${adminToken}`)
         .send(updateData)
         .expect(404);
 

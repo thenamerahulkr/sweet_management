@@ -11,7 +11,7 @@ const {
 const router = express.Router();
 
 
-router.post('/', auth, async (req, res) => {
+router.post('/', adminAuth, async (req, res) => {
   try {
     // Validate request body
     const { error, value } = createSweetSchema.validate(req.body);
@@ -97,8 +97,8 @@ router.get('/search', auth, async (req, res) => {
 
 // @desc    Update sweet
 // @route   PUT /api/sweets/:id
-// @access  Private
-router.put('/:id', auth, async (req, res) => {
+// @access  Private/Admin
+router.put('/:id', adminAuth, async (req, res) => {
   try {
     // Validate request body
     const { error, value } = updateSweetSchema.validate(req.body);
