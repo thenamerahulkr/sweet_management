@@ -323,12 +323,8 @@ The final product showcases my ability to deliver a complete, tested, and produc
 *Admin dashboard with full CRUD operations - Add, Edit, Delete, Restock sweets*
 
 ### User Dashboard
-![User Dashboard](./screenshots/user-dashboard.png)
+![User Dashboard](./screenshots/user%20dashboard.png)
 *User dashboard with purchase functionality and inventory display*
-
-### Search & Filter with Category Dropdown
-![Dashboard with Filters](./screenshots/dashboard-with-filters.png)
-*Advanced search functionality by name, category, and price range with dropdown filters*
 
 ### Edit Sweet Modal (Admin Only)
 ![Edit Sweet Modal](./screenshots/edit-sweet-modal.png)
