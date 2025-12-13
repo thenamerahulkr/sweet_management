@@ -318,21 +318,25 @@ The final product showcases my ability to deliver a complete, tested, and produc
 ![Registration Page](./screenshots/register.png)
 *User registration with role selection (User/Admin)*
 
-### Dashboard - Sweet Grid
-![Dashboard](./screenshots/dashboard.png)
-*Main dashboard displaying all available sweets in a responsive grid*
+### Dashboard - Sweet Grid (Admin View)
+![Dashboard Admin](./screenshots/dashboard-admin.png)
+*Admin dashboard with full CRUD operations - Add, Edit, Delete, Restock sweets*
+
+### Dashboard - Sweet Grid (User View)
+![Dashboard User](./screenshots/dashboard-user.png)
+*User dashboard with purchase functionality and inventory display*
 
 ### Search & Filter
-![Search](./screenshots/search.png)
-*Advanced search functionality by name, category, and price range*
+![Search](./screenshots/search-filter.png)
+*Advanced search functionality by name, category, and price range with dropdown filters*
 
-### Sweet Management (Admin)
-![Admin Features](./screenshots/admin.png)
-*Admin-only features: Add, Edit, Delete, and Restock sweets*
+### Sweet Management - Edit Modal (Admin)
+![Edit Sweet](./screenshots/edit-sweet.png)
+*Admin-only edit functionality with form validation and image URL support*
 
 ### Purchase Flow
-![Purchase](./screenshots/purchase.png)
-*User purchase interface with quantity validation*
+![Purchase](./screenshots/purchase-flow.png)
+*User purchase interface with quantity validation and stock management*
 
 ## 🚀 Deployment
 
