@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { sweetsAPI } from '../services/api';
+import EditSweetModal from './EditSweetModal';
 
 const SweetCard = ({ sweet, onUpdate, onDelete }) => {
   const [loading, setLoading] = useState(false);
@@ -8,6 +9,7 @@ const SweetCard = ({ sweet, onUpdate, onDelete }) => {
   const [restockQuantity, setRestockQuantity] = useState(1);
   const [showPurchaseForm, setShowPurchaseForm] = useState(false);
   const [showRestockForm, setShowRestockForm] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [error, setError] = useState('');
   
   const { isAdmin } = useAuth();
@@ -55,6 +57,11 @@ const SweetCard = ({ sweet, onUpdate, onDelete }) => {
         setLoading(false);
       }
     }
+  };
+
+  const handleEditComplete = () => {
+    setShowEditModal(false);
+    onUpdate();
   };
 
   return (
@@ -163,39 +170,58 @@ const SweetCard = ({ sweet, onUpdate, onDelete }) => {
         )}
 
         {/* Action Buttons */}
-        <div className="flex space-x-2">
+        <div className="space-y-2">
           {!showPurchaseForm && !showRestockForm && (
             <>
-              <button
-                onClick={() => setShowPurchaseForm(true)}
-                disabled={sweet.quantity === 0 || loading}
-                className="flex-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-3 py-2 rounded text-sm font-medium disabled:cursor-not-allowed"
-              >
-                Purchase
-              </button>
-              
-              {isAdmin() && (
-                <>
+              {/* Different buttons for Admin vs Regular Users */}
+              {isAdmin() ? (
+                /* Admin Only Buttons */
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => setShowEditModal(true)}
+                    disabled={loading}
+                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded text-sm font-medium"
+                  >
+                    Edit
+                  </button>
                   <button
                     onClick={() => setShowRestockForm(true)}
                     disabled={loading}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm font-medium"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm font-medium"
                   >
                     Restock
                   </button>
                   <button
                     onClick={handleDelete}
                     disabled={loading}
-                    className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm font-medium"
+                    className="flex-1 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm font-medium"
                   >
                     Delete
                   </button>
-                </>
+                </div>
+              ) : (
+                /* Purchase Button - Regular Users Only */
+                <button
+                  onClick={() => setShowPurchaseForm(true)}
+                  disabled={sweet.quantity === 0 || loading}
+                  className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-3 py-2 rounded text-sm font-medium disabled:cursor-not-allowed"
+                >
+                  {sweet.quantity === 0 ? 'Out of Stock' : 'Purchase'}
+                </button>
               )}
             </>
           )}
         </div>
       </div>
+
+      {/* Edit Sweet Modal */}
+      {showEditModal && (
+        <EditSweetModal
+          sweet={sweet}
+          onClose={() => setShowEditModal(false)}
+          onSweetUpdated={handleEditComplete}
+        />
+      )}
     </div>
   );
 };
