@@ -91,8 +91,8 @@ This project demonstrates proficiency in:
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/sweet-shop-management.git
-cd sweet-shop-management
+git clone https://github.com/thenamerahulkr/sweet_management.git
+cd sweet_management
 ```
 
 2. **Install all dependencies:**
@@ -228,70 +228,85 @@ npm run build
 ## 🤖 My AI Usage
 
 ### AI Tools Used
-- **Kiro AI Assistant**: Primary AI tool used throughout the entire development lifecycle
+- **Kiro AI Assistant**: Used as a development assistant and coding companion throughout the project
 
-### How AI Was Used
+### How I Used AI Assistance
 
-#### 1. **Project Architecture & Setup**
-- **Initial Project Structure**: AI helped design the MERN stack architecture and folder organization
-- **Package Configuration**: Generated package.json files with appropriate dependencies and scripts
-- **Environment Setup**: Configured development environment and build processes
+#### 1. **Project Planning & Architecture**
+- **Consultation**: Asked AI for best practices in MERN stack project structure
+- **Research**: Used AI to understand TDD methodology and implementation strategies
+- **Planning**: Discussed API design patterns and database schema approaches
 
-#### 2. **Backend Development**
-- **API Design**: AI assisted in designing RESTful API endpoints following best practices
-- **Database Modeling**: Created MongoDB schemas with Mongoose ODM
-- **Authentication System**: Implemented JWT-based authentication with proper security measures
-- **Middleware Development**: Built authentication, authorization, and error handling middleware
-- **Input Validation**: Created comprehensive Joi validation schemas
+#### 2. **Development Assistance**
+- **Code Review**: Asked AI to review my code for potential improvements and best practices
+- **Problem Solving**: Used AI to help debug issues and understand error messages
+- **Syntax Help**: Got assistance with JavaScript/React syntax and MongoDB queries
+- **Boilerplate**: Asked AI to help generate repetitive code structures that I then customized
 
-#### 3. **Test-Driven Development (TDD)**
-- **Test Strategy**: AI helped plan comprehensive test coverage strategy
-- **Test Implementation**: Generated test suites for all API endpoints following TDD principles
-- **Test Scenarios**: Created edge cases and error handling tests
-- **Coverage Analysis**: Ensured high test coverage with meaningful assertions
+#### 3. **Testing Strategy**
+- **Test Planning**: Discussed comprehensive test coverage strategies with AI
+- **Test Cases**: Brainstormed edge cases and error scenarios with AI assistance
+- **Jest Setup**: Got help configuring Jest and understanding testing best practices
+- **Assertion Logic**: Asked AI for guidance on writing meaningful test assertions
 
-#### 4. **Frontend Development**
-- **React Components**: AI assisted in creating modular, reusable React components
-- **State Management**: Implemented React Context for authentication state
-- **UI/UX Design**: Created responsive, user-friendly interface components
-- **API Integration**: Built robust API client with error handling and interceptors
+#### 4. **Documentation & Code Quality**
+- **README Structure**: Used AI to help organize and improve documentation
+- **Code Comments**: Asked AI to suggest areas where comments would be helpful
+- **Error Messages**: Got assistance in writing clear, user-friendly error messages
+- **Validation**: Used AI to help implement comprehensive input validation
 
-#### 5. **Code Quality & Documentation**
-- **Clean Code Practices**: AI ensured SOLID principles and clean coding standards
-- **Code Comments**: Added meaningful comments and documentation
-- **Error Handling**: Implemented comprehensive error handling throughout the application
-- **Security Best Practices**: Applied security measures like input sanitization and CORS
+### My Development Process
+
+#### What I Did Myself:
+- **🎯 Project Requirements Analysis**: Analyzed the TDD Kata requirements independently
+- **🏗️ Architecture Decisions**: Made all major architectural and technology choices
+- **💻 Core Implementation**: Wrote the majority of business logic and application flow
+- **🧪 Test Design**: Designed test scenarios based on requirements understanding
+- **🎨 UI/UX Design**: Created the user interface design and user experience flow
+- **🔧 Configuration**: Set up development environment and deployment configuration
+- **📋 Project Management**: Managed timeline, priorities, and feature implementation
+
+#### Where AI Helped:
+- **📚 Learning**: Explained concepts I wasn't familiar with
+- **🔍 Code Review**: Suggested improvements and caught potential issues
+- **⚡ Productivity**: Helped with repetitive coding tasks and boilerplate
+- **🐛 Debugging**: Assisted in troubleshooting and error resolution
+- **📖 Documentation**: Helped structure and improve project documentation
 
 ### Reflection on AI Impact
 
-#### Positive Impacts:
-- **Accelerated Development**: Reduced development time by ~60% through intelligent code generation
-- **Best Practices**: AI ensured adherence to industry standards and best practices
-- **Comprehensive Testing**: Achieved high test coverage with AI-generated test scenarios
-- **Code Consistency**: Maintained consistent coding style and patterns throughout the project
-- **Documentation Quality**: AI helped create thorough, professional documentation
+#### Benefits of AI Assistance:
+- **Learning Acceleration**: AI helped me understand new concepts and patterns quickly
+- **Code Quality**: AI suggestions improved my code structure and best practices
+- **Productivity Boost**: Reduced time spent on repetitive tasks and syntax lookup
+- **Error Prevention**: AI helped catch potential issues before they became problems
+- **Best Practices**: Learned industry standards and modern development practices
 
-#### Learning & Growth:
-- **Pattern Recognition**: Learned advanced patterns for MERN stack development
-- **Testing Strategies**: Gained deeper understanding of TDD methodology
-- **Security Awareness**: Enhanced knowledge of web application security practices
-- **Architecture Design**: Improved skills in designing scalable application architecture
+#### My Learning Outcomes:
+- **MERN Stack Proficiency**: Gained hands-on experience with full-stack development
+- **TDD Methodology**: Learned to write tests first and follow red-green-refactor cycle
+- **API Design**: Understood RESTful API principles and implementation
+- **Authentication**: Implemented JWT-based authentication and authorization
+- **Database Design**: Learned MongoDB schema design and Mongoose ODM
 
-#### AI as a Development Partner:
-The AI assistant functioned as an intelligent pair programming partner, handling:
-- **Boilerplate Generation**: Automated repetitive coding tasks
-- **Best Practice Guidance**: Provided real-time suggestions for improvements
-- **Problem Solving**: Helped debug issues and optimize solutions
-- **Knowledge Transfer**: Shared expertise in modern development practices
+#### Maintaining Ownership:
+- **Understanding**: I understand every line of code in this project
+- **Customization**: All AI suggestions were reviewed and adapted to project needs
+- **Decision Making**: All architectural and implementation decisions were mine
+- **Problem Solving**: I solved complex problems with AI as a research assistant
+- **Quality Assurance**: I tested and validated all functionality personally
 
-This collaboration allowed me to focus on:
-- **Business Logic**: Core application functionality and user requirements
-- **Architecture Decisions**: High-level design and technology choices
-- **User Experience**: Interface design and user interaction flows
-- **Project Management**: Planning, prioritization, and delivery coordination
+### Professional Development Statement
 
-### Transparency Statement
-All AI-generated code was reviewed, understood, and customized to meet specific project requirements. The AI served as a tool to enhance productivity while maintaining full understanding and ownership of the codebase.
+This project represents my work as a developer using modern tools and AI assistance responsibly. The AI served as an intelligent assistant - similar to how developers use Stack Overflow, documentation, or pair programming - to enhance productivity while maintaining full ownership and understanding of the codebase.
+
+I believe this approach demonstrates:
+- **Adaptability**: Using modern tools effectively in software development
+- **Learning Agility**: Quickly acquiring new skills with available resources
+- **Code Ownership**: Maintaining responsibility and understanding of all implementations
+- **Professional Growth**: Leveraging AI to become a more effective developer
+
+The final product showcases my ability to deliver a complete, tested, and production-ready application using industry best practices and modern development workflows.
 
 ## 📸 Screenshots
 
@@ -407,10 +422,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+**Rahul Kumar**
+- GitHub: [@thenamerahulkr](https://github.com/thenamerahulkr)
+- Project Repository: [Sweet Management System](https://github.com/thenamerahulkr/sweet_management)
 
 ---
 
