@@ -310,9 +310,9 @@ The final product showcases my ability to deliver a complete, tested, and produc
 
 ## 📸 Screenshots
 
-### Login Page
-![Login Page](./screenshots/login-page.png)
-*Clean, responsive login interface with validation*
+### Log in Page
+![Admin Dashboard with Edit Modal](./screenshots/login-page.png)
+*Admin dashboard showing edit sweet modal with form validation and image URL support*
 
 ### Registration Page  
 ![Registration Page](./screenshots/registration-page.png)
@@ -326,9 +326,9 @@ The final product showcases my ability to deliver a complete, tested, and produc
 ![User Dashboard](./screenshots/user%20dashboard.png)
 *User dashboard with purchase functionality and inventory display*
 
-### Edit Sweet Modal (Admin Only)
+### Edit Sweet Modal
 ![Edit Sweet Modal](./screenshots/edit-sweet-modal.png)
-*Admin-only edit functionality with form validation and image URL support*
+*Sweet management modal for editing product details*
 
 ## 🚀 Deployment
 
