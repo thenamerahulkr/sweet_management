@@ -127,13 +127,13 @@ const SweetCard = ({ sweet, onUpdate, onDelete }) => {
               <button
                 onClick={handlePurchase}
                 disabled={loading}
-                className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm disabled:opacity-50"
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded text-sm font-medium disabled:opacity-50 min-w-[60px] flex items-center justify-center"
               >
                 Buy
               </button>
               <button
                 onClick={() => setShowPurchaseForm(false)}
-                className="text-gray-500 hover:text-gray-700 text-sm"
+                className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-1 rounded text-sm font-medium min-w-[60px] flex items-center justify-center"
               >
                 Cancel
               </button>
@@ -155,13 +155,13 @@ const SweetCard = ({ sweet, onUpdate, onDelete }) => {
               <button
                 onClick={handleRestock}
                 disabled={loading}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm disabled:opacity-50"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded text-sm font-medium disabled:opacity-50 min-w-[70px] flex items-center justify-center"
               >
                 Restock
               </button>
               <button
                 onClick={() => setShowRestockForm(false)}
-                className="text-gray-500 hover:text-gray-700 text-sm"
+                className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-1 rounded text-sm font-medium min-w-[60px] flex items-center justify-center"
               >
                 Cancel
               </button>
@@ -204,7 +204,7 @@ const SweetCard = ({ sweet, onUpdate, onDelete }) => {
                 <button
                   onClick={() => setShowPurchaseForm(true)}
                   disabled={sweet.quantity === 0 || loading}
-                  className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-3 py-2 rounded text-sm font-medium disabled:cursor-not-allowed"
+                  className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white px-3 py-2 rounded text-sm font-medium disabled:cursor-not-allowed min-h-[36px] flex items-center justify-center"
                 >
                   {sweet.quantity === 0 ? 'Out of Stock' : 'Purchase'}
                 </button>

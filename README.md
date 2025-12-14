@@ -2,6 +2,11 @@
 
 A comprehensive full-stack MERN application for managing a sweet shop inventory, built with **Test-Driven Development (TDD)** principles and modern development practices.
 
+## 🌐 Live Demo
+**🔗 [View Live Application](https://sweet-management-swart.vercel.app/)**
+
+*Experience the full-featured sweet shop management system with user authentication, inventory management, and admin controls.*
+
 ## 🎯 Project Overview
 
 This project demonstrates proficiency in:
@@ -332,7 +337,12 @@ The final product showcases my ability to deliver a complete, tested, and produc
 
 ## 🚀 Deployment
 
-### Backend Deployment (Heroku/Railway)
+### 🌐 Live Application URLs
+- **Frontend**: [https://sweet-management-swart.vercel.app/](https://sweet-management-swart.vercel.app/)
+- **Backend API**: [https://sweet-management-azure.vercel.app/](https://sweet-management-azure.vercel.app/)
+- **API Health Check**: [https://sweet-management-azure.vercel.app/api/health](https://sweet-management-azure.vercel.app/api/health)
+
+### Backend Deployment (Vercel)
 ```bash
 # Set environment variables
 MONGODB_URI=your_mongodb_atlas_connection_string
