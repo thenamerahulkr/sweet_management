@@ -34,14 +34,6 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Error handling middleware
-app.use(errorHandler);
-
-// 404 handler
-app.use('*', (req, res) => {
-  res.status(404).json({ message: 'Route not found' });
-});
-
 // Database connection for serverless
 const connectDB = async () => {
   try {
@@ -51,9 +43,9 @@ const connectDB = async () => {
     }
     
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      bufferCommands: false,
+      bufferCommands: true, // Changed to true for better serverless compatibility
       maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
     });
     console.log(`MongoDB Connected: ${conn.connection.host}`);
@@ -64,8 +56,21 @@ const connectDB = async () => {
   }
 };
 
-// Middleware to ensure DB connection before routes
-app.use(async (req, res, next) => {
+// Initialize DB connection
+connectDB().catch(console.error);
+
+// Health check endpoint (no DB required)
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', message: 'Sweet Shop API is running!' });
+});
+
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ message: 'Sweet Shop API', status: 'running' });
+});
+
+// Middleware to ensure DB connection before protected routes
+app.use('/api', async (req, res, next) => {
   try {
     await connectDB();
     next();
@@ -79,9 +84,12 @@ app.use(async (req, res, next) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/sweets', sweetRoutes);
 
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Sweet Shop API is running!' });
+// Error handling middleware
+app.use(errorHandler);
+
+// 404 handler (must be last)
+app.use('*', (req, res) => {
+  res.status(404).json({ message: 'Route not found' });
 });
 
 const PORT = process.env.PORT || 3001;
