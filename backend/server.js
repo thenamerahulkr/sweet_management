@@ -34,15 +34,6 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/sweets', sweetRoutes);
-
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Sweet Shop API is running!' });
-});
-
 // Error handling middleware
 app.use(errorHandler);
 
@@ -56,26 +47,44 @@ const connectDB = async () => {
   try {
     if (mongoose.connections[0].readyState) {
       console.log('Already connected to MongoDB');
-      return;
+      return mongoose.connections[0];
     }
     
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
       bufferCommands: false,
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
     });
     console.log(`MongoDB Connected: ${conn.connection.host}`);
+    return conn;
   } catch (error) {
     console.error('Database connection error:', error);
-    // Don't exit process in serverless environment
-    if (process.env.NODE_ENV !== 'production') {
-      process.exit(1);
-    }
+    throw error;
   }
 };
 
-const PORT = process.env.PORT || 3001;
+// Middleware to ensure DB connection before routes
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error('Database connection failed:', error);
+    res.status(500).json({ success: false, message: 'Database connection failed' });
+  }
+});
 
-// Connect to database
-connectDB();
+// Routes (after DB connection middleware)
+app.use('/api/auth', authRoutes);
+app.use('/api/sweets', sweetRoutes);
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', message: 'Sweet Shop API is running!' });
+});
+
+const PORT = process.env.PORT || 3001;
 
 // Start server only if not in test environment or Vercel
 if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
